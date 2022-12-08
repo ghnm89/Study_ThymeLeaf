@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("/main")
 public class MainController {
     @Autowired
     private MainService mainService;
@@ -24,7 +23,7 @@ public class MainController {
         return "index_test";
     }
 
-    @GetMapping
+    @GetMapping("/index")
     public ModelAndView main() {
         ModelAndView mnv = new ModelAndView();
 
@@ -34,5 +33,55 @@ public class MainController {
         mnv.addObject("dataList", dataList);
 
         return mnv;
+    }
+
+    @GetMapping("/main/charts")
+    public String charts() {
+        return "pages/main/charts";
+    }
+
+    @GetMapping("/main/layout-sidenav-light")
+    public String layoutSidenav() {
+        return "pages/main/layout-sidenav-light";
+    }
+
+    @GetMapping("/main/layout-static")
+    public String layoutStatic() {
+        return "pages/main/layout-static";
+    }
+
+    @GetMapping("/main/tables")
+    public String tables() {
+        return "pages/main/tables";
+    }
+
+    @GetMapping("/auth/login")
+    public String login() {
+        return "pages/auth/login";
+    }
+
+    @GetMapping("/auth/password")
+    public String password() {
+        return "pages/auth/password";
+    }
+
+    @GetMapping("/auth/register")
+    public String register() {
+        return "pages/auth/register";
+    }
+
+    @GetMapping("/errors/401")
+    public String error401() {
+        return "pages/errors/401";
+    }
+
+    @GetMapping("/errors/404")
+    public String error404() {
+        return "pages/errors/404";
+    }
+
+    @GetMapping("/errors/500")
+    public String error500() {
+        return "pages/errors/500";
     }
 }
