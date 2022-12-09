@@ -51,8 +51,15 @@ public class MainController {
     }
 
     @GetMapping("/main/tables")
-    public String tables() {
-        return "pages/main/tables";
+    public ModelAndView tables() {
+        ModelAndView mnv = new ModelAndView();
+
+        List<MainTableDTO> dataList = mainService.getMainTableData();
+
+        mnv.setViewName("pages/main/tables");
+        mnv.addObject("dataList", dataList);
+
+        return mnv;
     }
 
     @GetMapping("/auth/login")
